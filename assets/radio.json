@@ -1,0 +1,102 @@
+{
+    "radios": [
+        {
+            "id": 1,
+            "name": "Club Mirchi",
+            "tagline": "Party 24X7",
+            "color": "0xff221420",
+            "desc": "If you are the one who wants to party through the day (& Night), then you’ve got your dream radio station.",
+            "url": "https://clubmirchihdlive-lh.akamaihd.net/i/ClubMirchiHDLive_1_1@336269/index_1_a-p.m3u8?sd=10&rebase=on",
+            "icon": "https://media.radiomirchi.com/onlinestation/banners/ClubMirchi165.jpg",
+            "image": "https://i.gifer.com/Utfh.gif",
+            "lang": "Hindi",
+            "disliked": false,
+            "category": "Dance",
+            "order": 1
+        },
+        {
+            "id": 2,
+            "name": "Mix Lite",
+            "tagline": "Lite Mix to your life.",
+            "color": "0xff04080b",
+            "desc": "Playing music regularly will physically alter your brain structure.",
+            "url": "https://rfcmedia.streamguys1.com/mixlitepremium.mp3",
+            "icon": "https://cdn-profiles.tunein.com/s247158/images/logog.png?t=1",
+            "image": "https://www.theknotnews.com/wp-content/uploads/2017/02/Fifty-Shades-Poster.jpg",
+            "lang": "English",
+            "disliked": false,
+            "category": "RnB",
+            "order": 2
+        },
+        {
+            "id": 3,
+            "name": "1.0",
+            "tagline": "Top Billboard Hit List.",
+            "color": "0xff066c53",
+            "desc": "",
+            "url": "https://rfcmedia.streamguys1.com/srhitlist.mp3",
+            "icon": "https://cdn-radiotime-logos.tunein.com/s74987g.png",
+            "image": "https://i0.wp.com/abitofpopmusic.com/wp-content/uploads/2019/06/d9hf8adxuaegh_r2983594819281445903.jpg?fit=953%2C1200&ssl=1",
+            "lang": "English",
+            "category": "hip-hop",
+            "disliked": false,
+            "order": 3
+        },
+        {
+            "id": 4,
+            "name": "iRock247",
+            "tagline": "Rock n Roll never die",
+            "color": "0xff27383e",
+            "desc": "",
+            "url": "https://streamer.radio.co/s493283a7e/listen",
+            "icon": "https://mytuner.global.ssl.fastly.net/media/tvos_radios/ftnjunvfujey.jpg",
+            "image": "https://www.mercurynews.com/wp-content/uploads/2016/08/20140915__CCT-HEAR-09181.jpg?w=645",
+            "lang": "English",
+            "category": "rock",
+            "disliked": false,
+            "order": 4
+        },
+        {
+            "id": 5,
+            "name": "107",
+            "tagline": "Gold Time Retro Hits",
+            "color": "0xff090909",
+            "desc": "Your heartbeat changes to mimics the music you listen to.",
+            "url": "https://puranijeanshdliv-lh.akamaihd.net/i/PuraniJeansHDLive_1_1@334555/index_1_a-p.m3u8?sd=10&rebase=on",
+            "icon": "https://mytuner.global.ssl.fastly.net/media/tvos_radios/uvclzz6a6d7x.jpeg",
+            "image": "https://i.pinimg.com/originals/7f/f6/13/7ff613ed815f1eb56a90794ec64eecfe.jpg",
+            "lang": "Hindi",
+            "category": "classic",
+            "disliked": false,
+            "order": 5
+        },
+        {
+            "id": 6,
+            "name": "91.1",
+            "tagline": "All Time 24×7 Top Punjabi Hindi Hits",
+            "color": "0xffa06a37",
+            "desc": "Groove to the latest Punjabi songs playing on Radio City Punjabi. Upbeat Punjabi party hit songs streaming live 24x7.",
+            "url": "https://prclive4.listenon.in/Punjabi",
+            "icon": "https://onlineradiofm.in/assets/image/radio/180/citypunjabi.png",
+            "image": "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/06/diljit-1592543581.jpg",
+            "lang": "Punjabi",
+            "category": "Punjabi",
+            "disliked": false,
+            "order": 6
+        },
+        {
+            "id": 7,
+            "name": "115",
+            "tagline": "Relax & Unwind",
+            "color": "0xffa06a37",
+            "desc": "Listen and forego your fatigue and calm your soul",
+            "url": "https://rfcmedia.streamguys1.com/relaxationpremium.mp3",
+            "icon": "https://mytuner.global.ssl.fastly.net/media/tvos_radios/ynn3xmm65ss7.jpeg",
+            "image": "https://images.pexels.com/photos/4473864/pexels-photo-4473864.jpeg?cs=srgb&dl=pexels-ketut-subiyanto-4473864.jpg&fm=jpg",
+            "lang": "English",
+            "category": "Relax",
+            "disliked": false,
+            "order": 7
+        }
+    ]
+}

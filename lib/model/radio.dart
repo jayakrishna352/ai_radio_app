@@ -11,7 +11,7 @@ class MyRadioList {
     required List<MyRadio> radios,
   }) {
     return MyRadioList(
-      radios: radios ?? this.radios,
+      radios: radios,
     );
   }
 

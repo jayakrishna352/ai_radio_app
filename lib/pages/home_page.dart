@@ -15,25 +15,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late List<MyRadio> radios;
-  late MyRadio _selectedRadio;
+  List<MyRadio>? radios;
+  MyRadio? _selectedRadio;
   Color _selectedColor = Colors.white;
   bool _isPlaying = false;
   final suggestions = [
     "Play",
     "Stop",
-    "Play rock music",
-    "Play 107 FM",
+    "92.7",
+    "98.3",
     "Play next",
-    "Play 104 FM",
+    "Play Club Mirchi",
+    "Play Mix Lite",
+    "1.",
+    "iRock247",
+    "107",
+    "91.1",
+    "115",
     "Pause",
     "Play previous",
-    "Play pop music"
+    "Play Dance music",
+    "Play RnB music",
+    "Play Hip-Hop Music",
+    "Play Rock music",
+    "Play Classic music",
+    "Play Punjabi music",
+    "Play Relax music",
   ];
   final AudioPlayer _audioPlayer = AudioPlayer();
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     setupAlan();
     fetchRadios();
@@ -58,15 +70,15 @@ class _HomePageState extends State<HomePage> {
   void _handleCommand(Map<String, dynamic> response) {
     switch (response["command"]) {
       case "play":
-        _playMusic(_selectedRadio.url);
+        _playMusic(_selectedRadio!.url);
         break;
 
       case "play_channel":
         final id = response["id"];
         // _audioPlayer.pause();
-        MyRadio newRadio = radios.firstWhere((element) => element.id == id);
-        radios.remove(newRadio);
-        radios.insert(0, newRadio);
+        MyRadio newRadio = radios!.firstWhere((element) => element.id == id);
+        radios!.remove(newRadio);
+        radios!.insert(0, newRadio);
         _playMusic(newRadio.url);
         break;
 
@@ -74,31 +86,31 @@ class _HomePageState extends State<HomePage> {
         _audioPlayer.stop();
         break;
       case "next":
-        final index = _selectedRadio.id;
+        final index = _selectedRadio!.id;
         MyRadio newRadio;
-        if (index + 1 > radios.length) {
-          newRadio = radios.firstWhere((element) => element.id == 1);
-          radios.remove(newRadio);
-          radios.insert(0, newRadio);
+        if (index + 1 > radios!.length) {
+          newRadio = radios!.firstWhere((element) => element.id == 1);
+          radios!.remove(newRadio);
+          radios!.insert(0, newRadio);
         } else {
-          newRadio = radios.firstWhere((element) => element.id == index + 1);
-          radios.remove(newRadio);
-          radios.insert(0, newRadio);
+          newRadio = radios!.firstWhere((element) => element.id == index + 1);
+          radios!.remove(newRadio);
+          radios!.insert(0, newRadio);
         }
         _playMusic(newRadio.url);
         break;
 
       case "prev":
-        final index = _selectedRadio.id;
+        final index = _selectedRadio!.id;
         MyRadio newRadio;
         if (index - 1 <= 0) {
-          newRadio = radios.firstWhere((element) => element.id == 1);
-          radios.remove(newRadio);
-          radios.insert(0, newRadio);
+          newRadio = radios!.firstWhere((element) => element.id == 1);
+          radios!.remove(newRadio);
+          radios!.insert(0, newRadio);
         } else {
-          newRadio = radios.firstWhere((element) => element.id == index - 1);
-          radios.remove(newRadio);
-          radios.insert(0, newRadio);
+          newRadio = radios!.firstWhere((element) => element.id == index - 1);
+          radios!.remove(newRadio);
+          radios!.insert(0, newRadio);
         }
         _playMusic(newRadio.url);
         break;
@@ -111,15 +123,15 @@ class _HomePageState extends State<HomePage> {
   fetchRadios() async {
     final radioJson = await rootBundle.loadString("assets/radio.json");
     radios = MyRadioList.fromJson(radioJson).radios;
-    _selectedRadio = radios[0];
-    _selectedColor = Color(int.parse(_selectedRadio.color));
+    _selectedRadio = radios![0];
+    _selectedColor = Color(int.parse(_selectedRadio!.color));
     print(radios);
     setState(() {});
   }
 
   _playMusic(String url) {
     _audioPlayer.play(url);
-    _selectedRadio = radios.firstWhere((element) => element.url == url);
+    _selectedRadio = radios!.firstWhere((element) => element.url == url);
     setState(() {});
   }
 
@@ -136,7 +148,7 @@ class _HomePageState extends State<HomePage> {
               ListView(
                 padding: Vx.m0,
                 shrinkWrap: true,
-                children: radios
+                children: radios!
                     .map((e) => ListTile(
                           leading: CircleAvatar(
                             backgroundImage: NetworkImage(e.icon),
@@ -192,7 +204,7 @@ class _HomePageState extends State<HomePage> {
           ].vStack(alignment: MainAxisAlignment.start),
           30.heightBox,
           VxSwiper.builder(
-            itemCount: radios.length,
+            itemCount: radios!.length,
             aspectRatio: context.mdWindowSize == VxWindowSize.xsmall
                 ? 1.0
                 : context.mdWindowSize == VxWindowSize.medium
@@ -200,13 +212,13 @@ class _HomePageState extends State<HomePage> {
                     : 3.0,
             enlargeCenterPage: true,
             onPageChanged: (index) {
-              _selectedRadio = radios[index];
-              final colorHex = radios[index].color;
+              _selectedRadio = radios![index];
+              final colorHex = radios![index].color;
               _selectedColor = Color(int.parse(colorHex));
               setState(() {});
             },
             itemBuilder: (context, index) {
-              final rad = radios[index];
+              final rad = radios![index];
 
               return VxBox(
                       child: ZStack(
@@ -266,7 +278,7 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.bottomCenter,
             child: [
               if (_isPlaying)
-                "Playing Now - ${_selectedRadio.name} FM"
+                "Playing Now - ${_selectedRadio!.name} FM"
                     .text
                     .white
                     .makeCentered(),
@@ -280,7 +292,7 @@ class _HomePageState extends State<HomePage> {
                 if (_isPlaying) {
                   _audioPlayer.stop();
                 } else {
-                  _playMusic(_selectedRadio.url);
+                  _playMusic(_selectedRadio!.url);
                 }
               })
             ].vStack(),
